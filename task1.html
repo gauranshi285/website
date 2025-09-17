@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fictional Product - Landing Page</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            scroll-behavior: smooth;
+            font-family:Arial, Helvetica, sans-serif;
+        }
+        body {
+            line-height: 1.6;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        nav {
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            padding: 1rem 2rem;
+            background-color: #1e1e2f;
+            color: #fff;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .nav-links a{
+            margin-left: 1.5rem;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover{
+            color: #00bcd4;
+        }
+        .hero {
+            background: linear-gradient(to right,#4a004a,#8e2de2);
+            color: #fff;
+            text-align: center;
+            padding: 5rem 2rem;
+        }
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        .cta-btn {
+            padding: 0.8rem 1.5rem;
+            background-color: #00bcd4;
+            border:none;
+            color:white;
+            font-size: 1rem;
+            cursor:pointer;
+            transition: background-color 0.3s;
+            border-radius: 5px;
+        }
+        .cta-btn:hover {
+            background-color: #0097a7;
+        }
+        .feature-card {
+            flex:1 1 250px;
+            max: width 300px;
+            background: white;
+            padding:2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .feature-card:hover {
+            transform: translatey(-5px);
+        }
+        .feature-card h3 {
+            margin-bottom: 0.5rem;
+            color:#4a004a;
+        }
+        .contact {
+            padding: 4rem 2rem;
+            background-color: #ffffff;
+        }
+        .contact h2{
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        form {
+            max-width: 500px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+        }
+        input,textarea {
+            padding: 0.75rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            resize: vertical;
+        }
+        button[type="submit"]{
+            background-color: #4a00e0;
+            color: white;
+            border: none;
+            padding: 0.75rem;
+            cursor:pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        button[type="submit"]:hover{
+            background-color: #3700b3;
+        }
+        footer {
+            text-align: center;
+            padding: 1.5rem 2rem;
+            background-color: #1e1e2f;
+            color:#ccc;
+        }
+        @media (max-width:768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .features{
+                flex-direction: column;
+                align-items: center;
+            }
+            nav{
+                flex-direction: column;
+            }
+            .nav-links {
+                margin-top: 0.5rem;
+            }
+        }
+         </style>
+         </head>
+         <body>
+            <nav>
+                <div class ="logo">Fictional Tech</div>
+                <div class ="nav-links">
+                    <a href="#hero">home</a>
+                    <a href ="#features">about</a>
+                    <a href="#contact">contact</a>
+                </div>
+            </nav>
+            <section class ="hero" id="hero">
+                <h1>Next-Gen Solutions for Everyday Life</h1>
+                <p>Discover how FictionaL Tech can transform your digital experience</p>
+                <a href="#contact"><button class="cta-btn">Get Started</button></a>
+            </section>
+            <section class ="features" id="features">
+                <div class="feature-card">
+                    <h3>Fast Perforance</h3>
+                    <p>Optimized for speed, our services ensure smooth and seamless use.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Secure by Design</h3>
+                    <p>Top-grade security protocols to keep your data safe and private</p>
+                </div>
+                <div class ="feature-card">
+                    <h3>User Friendly</h3>
+                    <p>easy interfaces that make even complex tasks simple and fun.</p>
+                </div>
+            </section>
+            <section class="contact" id="contact">
+                <h2>Contact us</h2>
+                <form onsubmit="handleSubmit(event)">
+                    <input type="text" placeholder="your name" required />
+                    <input type ="email" placeholder="your email" required />
+                    <textarea rows ="5" placeholder="your message" required></textarea>
+                    <button type="submit">send message</button>
+                </form>
+            </section>
+            <footer>
+                <p>&copy; 2025 FictionalTech.All rights reserved</p>
+            </footer>
+            <script>
+                function handlesSubmit(event){
+                    event.preventDefault();
+                    alert("thanks for contacting us!");
+                }
+            </script>
+
+    
+</body>
+</html>
