@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <h2> complex form</h2>
+  <form>
+    <fieldset>
+        <legend> personal information</legend>
+        <label for="name">name</label>
+        <input type="text" id="name" name="name">
+  
+         <label for="emailid">emailid</label>
+        <input type="text" id="emailid" name="emailid">
+
+         <label for="phonenumber">phonenumber</label>
+        <input type="tel" id="phonenumber" name="phonenumber">
+        <label for="date of birth">date of birth</label>
+        <input type="date" name="dateofbirth" id="dateofbirth">
+        <br/>
+        <br/>
+        <span>gender</span>
+        <label for="radio1">male</label>
+        <input type="radio" name="radio" id="radio1">
+         <label for="radio2">female</label>
+        <input type="radio" name="radio" id="radio2">
+        <br/>
+        <br/>
+        <label for="country">country:</label>
+        <select name="country" id="country">
+            <option value="india">india</option>
+            <option value="us">united states</option>
+
+
+    </fieldset>
+    <br/>
+    <br/>
+    <fieldset>
+        <legend> Address</legend>
+         <label for="street">street</label>
+        <input type="text" id="street" name="street">
+  
+         <label for="city">city</label>
+        <input type="text" id="city" name="city">
+  
+         <label for="state">state</label>
+        <input type="text" id="state" name="state">
+  
+         <label for="zipcode">zipcode</label>
+        <input type="text" id="zipcode" name="zipcode">
+  
+    </fieldset>
+    <br/>
+    <br/>
+    <fieldset>
+        <legend>other information</legend>
+             <label for="textarea1"> comments:</label>
+    <br/>
+    <textarea name="textarea1" id="textarea1" cols="30" rows="10"></textarea>
+    <label for="terms"> i agree to hte terms of services:</label>
+    <input type="checkbox" name="terms" id="terms">
+    <input type="submit" value="submit">
+    </fieldset>
+  </form>  
+</body>
+</html>

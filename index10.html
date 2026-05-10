@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        :root{
+            --primary-color:brown;
+            --custom-width:330px;
+        }
+        .container{
+            background-color: beige;
+            height:650px;
+            border:2px solid black;
+            display:flex;
+            justify-content: center;
+            align-items:center;
+        }
+        .box{
+            --primary-color:brown;
+            --custom-width:330px
+            background-color: aquamarine;
+            width:var(--custom-width);
+            height:330px;
+            border:1px solid var(--primary-color);
+            margin:5px;
+            padding:5px;
+            box-shadow: -10px 160px var(--primary-color);
+            box-shadow: 10px 15px -50px var(--primary-color);
+            box-shadow: 10px 15px 5px 20px rgba(red, green, blue, alpha)(78,158,211,0.7);
+            box-shadow: 10 px 15px var(--primary-color);
+            box-shadow: 10px 15px red,15px 8x green;
+
+        }
+        #head1{
+            text-shadow: 12px 13px 1px white;
+        }
+        #head2{
+            text-shadow: yellow 12px 13px 2px ;
+
+        }
+          #head3{
+            text-shadow: white 12px 13px;
+
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+            <img src=".vscode/OIP.jpg">
+            <h2 id="head1"> welcome to codehelp</h2>
+             <h2 id="head2"> welcome to codehelp</h2>
+              <h2 id="head3"> welcome to codehelp</h2>
+            <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius voluptate aliquid adipisci. Incidunt sapiente perspiciatis, cumque rerum ab reiciendis officia a blanditiis sequi eligendi fugit quasi voluptas, dignissimos voluptates nostrum atque sit voluptatibus? Ratione exercitationem, quia porro accusamus ipsam rerum incidunt inventore expedita recusandae? Hic tempora voluptas atque natus in sunt delectus consequatur cumque laboriosam amet sit adipisci, voluptatem inventore ullam iste eos voluptatum sequi fugiat error soluta earum quasi nulla odit ducimus. Aut ex nemo non autem, incidunt molestias fuga provident unde culpa libero nam officiis similique impedit sit? Provident quam molestias necessitatibus eum praesentium, voluptatibus deleniti voluptate itaque.</p>
+
+        </div>
+    </div>
+    
+</body>
+</html>
