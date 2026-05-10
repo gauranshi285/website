@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Productivity Tool</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        html{
+            scroll-behavior: smooth;
+        }
+        .fade.in{
+            opacity:0;
+            transform: translatey(30px);
+            transition: all 0.8s ease-out;
+        }
+        .fade-in.show{
+            opacity: 1;
+            transform: translateY(0);
+        }
+        </style>
+        </head>
+        <body class="font-sans bg-gray-50 text-gray-900">
+            <header class="fixed w-full bg-white shadow z-50">
+                <nav class="container mx-auto flex justify-between items-center p-4">
+                    <h1 class="text-xl font-bold">AI Boost</h1>
+                    <ul class="hidden md:flex gap-6">
+                        <li><a href="#hero" class="hover:text-blue-600 transition">Home</a></li>
+                        <li><a href="#features" class="hover:text-blue-600 transition">features</a></li>
+                       <li><a href="#testimonials" class="hover:text-blue-600 transition">testimonials</a></li>
+                       <li><a href="#cta" class="hover:text-blue-600 transition">Get Started</a></li>
+                    </ul>
+                    <button id="mobileMenu" class="hidden md:hidden bg-white shadow p-4">
+                        <a href="#hero" class="block py-2">Home</a>
+                        <a href="#features" class="block py-2">Features</a>
+                        <a href="#testimonials" class="block py-2">testimonials</a>
+                        <a href="#cta" class="block py-2">Get Started</a>
+                    </div>
+                </header>
+                <section id="hero" class="pt-24 bg-gradient-to-r from -blue-500 to purple-600 text-white text-center px-6 fade-in">
+                    <h2 class="text-4xl md:text-6xl font-bold mb-4">Boost your Productivity with AI</h2>
+                    <p class="text-lg mb-6">Automate tasks,save time,and achieve more with our AI-powered assistant</p>
+                    <a href="#cta" class="bg-white test-blue-600 px-6 py-3 rounded-lg font -semibold hover:bg-gray-200 transition">Get Started</a>
+                    </section>
+                    <section id="features" class="py-16 container mx-auto px-6 fade-in">
+                        <h3 class="text-3xl font-bold text-center mb-10">Features</h3>
+                        <div class="grid gap-8 md:grid-cols-3">
+                            <div class="bg-white p-6 shadow rounded-lg hover:scale-105 transition">
+                                <h4 class="font-bold text-xl mb-2">Smart Scheduling</h4>
+                                <p>AI organizes your meetings,reminders,and deadlines seamlessly</p>
+                            </div>                        </div>
+                            <div class="bg-white p-6 shadow rounded-lg hover:scale-105 transition">
+                                <h4 class="font-bold text-xl mb-2">Task Automation</h4>
+                                <p>Let AI handle repetitive tasks so you can focus on what matters</p> 
+                                    </div>
+                                    <div class="bg-white p-6 shadow rounded-lg hover:scale-105 transition">
+                                        <h4 class ="font-bold text-xl mb-2">Real-Time-Insights</h4>
+                                        <p>Get instant data-driven recommendations for better decision</p>
+                                    </div>
+                                </div>
+                                </section>
+                                <section id="testimonials" class="bg-gray-100 py-16 fade-in">
+                                    <h3 class="text-3xl font-bold text-center mb-10">What Our Users</h3>
+                                    <div class="container mx-auto px-6 flex flex-col md:flex-row gap-8">
+                                        <div class="bg-white p-6 rounded-lg shadow text-center hover:shadow-lg transition">
+                                            <img src="https://i.pravatar.cc/100?img=1" class="w-16 h-16 mx-auto rounded-full mb-4" alt="User">
+                                            <p>"This AI saved me hours every week.Highly recommend!"</p>
+                                            <span class="block mt-2 font-semibold">--Alex,Entrepreneur</span>
+                                        </div>
+                                        <div class="bg-white p-6 rounded-lg shadow text-center hover:shadow-lg transition">
+                                            <img src="https://i.pravatar.cc/100?img=2"class="w-16 h-16 mx-auto rounded-full mb-4"alt="User">
+                                            <p>"Seamless and powerful. The automation is a game changer."</p>
+                                            <span class="block mt-2 font-semibold">-Priya,Project Manager</span>
+                                        </div>
+                                    </div>
+                                </section>
+                                <section id ="cta" class="py-16 bg-blue-600 text-white text-center px-6 fade-in">
+                                    <h3 class="text-4xl font-bold mb-4">Ready to Get Started? </h3>
+                                    <p class="mb-6">Join thousands of professionals using AI Boost to work smarter.</p>
+                                    <a href="#" class="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-200 transition">Sign UP Now</a>
+                                </section>
+                                <footer class="bg-gray-900 text-white text-center p-4">
+                                    <p>&copy; 2025 AI Boost.All rights reserved.</p>
+                                </footer>
+                                <script>
+                                    const menubtn = document.getElementById('menuBtn');
+                                    const mobileMenu = document.getElementById('mobileMenu');
+                                    const fadeElements = document.querySelectorAll('.fade-in');
+                                    menuBtn.addEventListener('click',()=>{
+                                        mobileMenu.classList.toggle('hidden')
+                                    });
+                                    const observer = new IntersectionObserver((entries))=>{
+                                        entries.forEach(entry=>{
+                                            if(entry.isInteresecting){
+                                                entry.target.classList.add('show');
+                                            }
+                                        });
+                                    }, { threshold:0.2});
+                                    fadeElements.forEach(el=>observer.observe(el));
+                                    </script>
+
+    
+</body>
+</html>
