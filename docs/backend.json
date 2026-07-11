@@ -1,0 +1,107 @@
+
+{
+  "entities": {
+    "ContactEntry": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "ContactEntry",
+      "type": "object",
+      "description": "Stores contact information, including name, contact number, date, and time.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the contact entry."
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the contact person."
+        },
+        "contactNumber": {
+          "type": "string",
+          "description": "Contact phone number."
+        },
+        "entryDateTime": {
+          "type": "string",
+          "description": "Date and time the contact information was recorded.",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "contactNumber",
+        "entryDateTime"
+      ]
+    },
+    "Lead": {
+      "title": "Lead",
+      "type": "object",
+      "description": "Stores lead information captured from the chat, including name, phone number, and creation timestamp.",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of the lead."
+        },
+        "phone": {
+          "type": "string",
+          "description": "Phone number of the lead."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The timestamp when the lead was created."
+        }
+      },
+      "required": [
+        "name",
+        "phone",
+        "createdAt"
+      ]
+    }
+  },
+  "auth": {
+    "providers": [
+      "password"
+    ]
+  },
+  "firestore": {
+    "structure": [
+      {
+        "path": "/users/{userId}/contacts/{contactId}",
+        "definition": {
+          "entityName": "ContactEntry",
+          "schema": {
+            "$ref": "#/backend/entities/ContactEntry"
+          },
+          "description": "Stores contact entries for each user.  Each entry includes the name, contact number, and the date/time it was recorded.",
+          "params": [
+            {
+              "name": "userId",
+              "description": "The unique identifier for the user."
+            },
+            {
+              "name": "contactId",
+              "description": "The unique identifier for the contact entry."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/leads/{leadId}",
+        "definition": {
+          "entityName": "Lead",
+          "schema": {
+            "$ref": "#/backend/entities/Lead"
+          },
+          "description": "Stores lead information captured from the chat.",
+          "params": [
+            {
+              "name": "leadId",
+              "description": "The unique identifier for the lead entry."
+            }
+          ]
+        }
+      }
+    ],
+    "reasoning": "The Firestore structure is designed to store contact entries with a focus on individual user ownership. Each user has a dedicated collection of contact entries, ensuring data isolation and simplified security rules. The `contacts/{contactId}` collection is used to store the actual contact entry data, including the name, contact number, and date/time the information was recorded.  This design achieves Authorization Independence by storing each contact entry within a user-specific collection. Since access control is based on path ownership (`/users/{userId}/contacts/{contactId}`), security rules can be enforced without relying on `get()` calls to parent documents.  This structure facilitates simple, robust, and easily debuggable security rules, aligning with the principle of Authorization Independence. The structure inherently supports QAPs, as `list` operations are naturally scoped to the individual user's collection, ensuring only authorized contact entries are returned."
+  }
+}

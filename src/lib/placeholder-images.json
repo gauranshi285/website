@@ -1,0 +1,28 @@
+{
+  "placeholderImages": [
+    {
+      "id": "contact-1",
+      "description": "Avatar for Dr. Evelyn Reed",
+      "imageUrl": "https://picsum.photos/seed/101/100/100",
+      "imageHint": "woman professor"
+    },
+    {
+      "id": "contact-2",
+      "description": "Avatar for Mr. David Chen",
+      "imageUrl": "https://picsum.photos/seed/102/100/100",
+      "imageHint": "man administrator"
+    },
+    {
+      "id": "contact-3",
+      "description": "Avatar for Dr. Sofia Garcia",
+      "imageUrl": "https://picsum.photos/seed/103/100/100",
+      "imageHint": "woman advisor"
+    },
+    {
+      "id": "contact-4",
+      "description": "Avatar for Prof. Ben Carter",
+      "imageUrl": "https://picsum.photos/seed/104/100/100",
+      "imageHint": "man academic"
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+/**
+ * @fileoverview Firestore Security Rules for Contact Entries and Leads.
+ *
+ * Core Philosophy:
+ * This ruleset enforces a strict user-ownership model for contact entries
+ * and allows public creation and viewing of leads, while restricting
+ * deletion to authenticated users.
+ */
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    /**
+     * @description Secures the contact entries for each user.
+     * @path /users/{userId}/contacts/{contactId}
+     * @allow (create, get, update, delete, list) only for the user who owns the data.
+     */
+    match /users/{userId}/contacts/{contactId} {
+      allow get: if isSignedIn() && isOwner(userId);
+      allow list: if isSignedIn() && isOwner(userId);
+
+      allow create: if isSignedIn() && isOwner(userId) && request.resource.data.id == contactId;
+      allow update: if isSignedIn() && isExistingOwner(userId) && request.resource.data.id == resource.data.id;
+      allow delete: if isSignedIn() && isExistingOwner(userId);
+    }
+
+    /**
+     * @description Secures the leads collection.
+     * @path /leads/{leadId}
+     * @allow (create) for any user to capture leads.
+     * @allow (list, get) for any user (public read access).
+     * @allow (delete) only for authenticated users.
+     * @deny (update) to protect lead information.
+     */
+    match /leads/{leadId} {
+      allow create: if true;
+      allow list, get: if true;
+      allow delete: if isSignedIn();
+      allow update: if false;
+    }
+  }
+
+  // Helper functions
+  function isSignedIn() {
+    return request.auth != null;
+  }
+
+  function isOwner(userId) {
+    return request.auth.uid == userId;
+  }
+
+  function isExistingOwner(userId) {
+    return isOwner(userId) && resource != null;
+  }
+}
